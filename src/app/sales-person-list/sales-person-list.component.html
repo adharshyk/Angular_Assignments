@@ -1,0 +1,64 @@
+
+
+<table border="1">
+    <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th>Sales volume</th>
+    </tr>
+    <tr *ngFor="let temp of salesPersonList" [ngClass]="{'metQuote':temp.salary>=25000,'nonMetQuote':temp.salary<25000}" >
+        <td>{{temp.firstName}}</td>
+        <td>{{temp.lastName}}</td>
+        <td>{{temp.email}}</td>
+        <td>{{temp.salary}}</td>
+        <td>{{temp.salesVolume}}</td>
+        <!-- <td>
+            <div *ngIf="temp.salesVolume>3000;else elseBlock"> YES</div>
+            <ng-template #elseBlock>NO</ng-template>
+        </td> -->
+    </tr>
+</table><br>
+
+<form #SPForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">FirstName</label>
+        <div class="col-sm-10">
+            <input type="text" name="firstname" [(ngModel)]="salesPersonModel.firstName">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">LastName</label>
+        <div class="col-sm-10">
+            <input type="text" name="lastname" [(ngModel)]="salesPersonModel.lastName">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+            <input type="text" name="firstname" [(ngModel)]="salesPersonModel.email">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Salary</label>
+        <div class="col-sm-10">
+            <input type="text" name="firstname" [(ngModel)]="salesPersonModel.salary">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Salesvolume</label>
+        <div class="col-sm-10">
+            <input type="text" name="firstname" [(ngModel)]="salesPersonModel.salesVolume">
+        </div>
+    </div><br>
+
+    <div class="form-group row">
+        <div class="col-sm-2"><button type="submit">Submit</button></div><br>
+        <div class="col-sm-2"><button type="reset">Reset</button></div>
+    </div>
+</form>
